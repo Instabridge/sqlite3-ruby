@@ -1,43 +1,55 @@
 Gem::Specification.new do |s|
-  s.name = "sqlite3-static"
-  s.version = "3.22.0"
-  s.require_paths = ["lib"]
-  s.authors = ["Jamis Buck", "Luis Lavena", "Aaron Patterson", "Jesús A. Álvarez"]
-  s.date = "2018-02-22"
-  s.description = "SQLite3 bindings with embedded SQLite library."
-  s.email = ["jamis@37signals.com", "luislavena@gmail.com", "aaron@tenderlovemaking.com", "zydeco@namedfork.net"]
-  s.extensions = ["ext/sqlite3/extconf.rb"]
-  s.files = [
-    "API_CHANGES.rdoc",
-    "CHANGELOG.rdoc",
-    "Manifest.txt",
-    "README.rdoc",
-    "ext/sqlite3/backup.c",
-    "ext/sqlite3/backup.h",
-    "ext/sqlite3/database.c",
-    "ext/sqlite3/database.h",
-    "ext/sqlite3/exception.c",
-    "ext/sqlite3/exception.h",
-    "ext/sqlite3/extconf.rb",
-    "ext/sqlite3/sqlite3_core.c",
-    "ext/sqlite3/sqlite3_ruby.h",
-    "ext/sqlite3/sqlite3.c",
-    "ext/sqlite3/sqlite3.h",
-    "ext/sqlite3/statement.c",
-    "ext/sqlite3/statement.h",
-    "lib/sqlite3.rb",
-    "lib/sqlite3/constants.rb",
-    "lib/sqlite3/database.rb",
-    "lib/sqlite3/errors.rb",
-    "lib/sqlite3/pragmas.rb",
-    "lib/sqlite3/resultset.rb",
-    "lib/sqlite3/statement.rb",
-    "lib/sqlite3/translator.rb",
-    "lib/sqlite3/value.rb",
-    "lib/sqlite3/version.rb"
-  ]
-  s.homepage = "https://github.com/Instabridge/sqlite3-ruby-static"
-  s.licenses = ["BSD-3-Clause"]
-  s.rdoc_options = ["--main", "README.rdoc"]
-  s.summary = "SQLite3 bindings with embedded SQLite library, requiring no external dependencies."
+  s.name = "sqlite3-static".freeze
+  s.version = "1.4.2.20200412165500.3.22"
+
+  s.required_rubygems_version = Gem::Requirement.new(">= 1.3.5".freeze) if s.respond_to? :required_rubygems_version=
+  s.metadata = { "msys2_mingw_dependencies" => "sqlite3" } if s.respond_to? :metadata=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Jamis Buck".freeze, "Luis Lavena".freeze, "Aaron Patterson".freeze, "Jesús A. Álvarez".freeze]
+  s.date = "2020-04-12"
+  s.description = "SQLite3 bindings with embedded SQLite library.".freeze
+  s.email = ["jamis@37signals.com".freeze, "luislavena@gmail.com".freeze, "aaron@tenderlovemaking.com".freeze]
+  s.extensions = ["ext/sqlite3/extconf.rb".freeze]
+  s.extra_rdoc_files = ["API_CHANGES.rdoc".freeze, "CHANGELOG.rdoc".freeze, "Manifest.txt".freeze, "README.rdoc".freeze, "API_CHANGES.rdoc".freeze, "CHANGELOG.rdoc".freeze, "README.rdoc".freeze, "ext/sqlite3/aggregator.c".freeze, "ext/sqlite3/backup.c".freeze, "ext/sqlite3/database.c".freeze, "ext/sqlite3/exception.c".freeze, "ext/sqlite3/sqlite3.c".freeze, "ext/sqlite3/sqlite3_core.c".freeze, "ext/sqlite3/statement.c".freeze]
+  s.files = [".gemtest".freeze, ".travis.yml".freeze, "API_CHANGES.rdoc".freeze, "CHANGELOG.rdoc".freeze, "ChangeLog.cvs".freeze, "Gemfile".freeze, "LICENSE".freeze, "Manifest.txt".freeze, "README.rdoc".freeze, "Rakefile".freeze, "appveyor.yml".freeze, "ext/sqlite3/aggregator.c".freeze, "ext/sqlite3/aggregator.h".freeze, "ext/sqlite3/backup.c".freeze, "ext/sqlite3/backup.h".freeze, "ext/sqlite3/database.c".freeze, "ext/sqlite3/database.h".freeze, "ext/sqlite3/exception.c".freeze, "ext/sqlite3/exception.h".freeze, "ext/sqlite3/extconf.rb".freeze, "ext/sqlite3/sqlite3.c".freeze, "ext/sqlite3/sqlite3.h".freeze, "ext/sqlite3/sqlite3_core.c".freeze, "ext/sqlite3/sqlite3_ruby.h".freeze, "ext/sqlite3/statement.c".freeze, "ext/sqlite3/statement.h".freeze, "faq/faq.rb".freeze, "faq/faq.yml".freeze, "lib/sqlite3.rb".freeze, "lib/sqlite3/constants.rb".freeze, "lib/sqlite3/database.rb".freeze, "lib/sqlite3/errors.rb".freeze, "lib/sqlite3/pragmas.rb".freeze, "lib/sqlite3/resultset.rb".freeze, "lib/sqlite3/statement.rb".freeze, "lib/sqlite3/translator.rb".freeze, "lib/sqlite3/value.rb".freeze, "lib/sqlite3/version.rb".freeze, "rakelib/faq.rake".freeze, "rakelib/gem.rake".freeze, "rakelib/native.rake".freeze, "rakelib/vendor_sqlite3.rake".freeze, "setup.rb".freeze, "test/helper.rb".freeze, "test/test_backup.rb".freeze, "test/test_collation.rb".freeze, "test/test_database.rb".freeze, "test/test_database_flags.rb".freeze, "test/test_database_readonly.rb".freeze, "test/test_database_readwrite.rb".freeze, "test/test_deprecated.rb".freeze, "test/test_encoding.rb".freeze, "test/test_integration.rb".freeze, "test/test_integration_aggregate.rb".freeze, "test/test_integration_open_close.rb".freeze, "test/test_integration_pending.rb".freeze, "test/test_integration_resultset.rb".freeze, "test/test_integration_statement.rb".freeze, "test/test_result_set.rb".freeze, "test/test_sqlite3.rb".freeze, "test/test_statement.rb".freeze, "test/test_statement_execute.rb".freeze]
+  s.homepage = "https://github.com/sparklemotion/sqlite3-ruby".freeze
+  s.homepage = "https://github.com/sparklemotion/sqlite3-ruby".freeze
+  s.licenses = ["BSD-3-Clause".freeze]
+  s.rdoc_options = ["--main".freeze, "README.rdoc".freeze]
+  s.required_ruby_version = Gem::Requirement.new(">= 1.8.7".freeze)
+  s.rubygems_version = "2.7.6.2".freeze
+  s.summary = "SQLite3 bindings with embedded SQLite library.".freeze
+
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_development_dependency(%q<minitest>.freeze, ["~> 5.14"])
+      s.add_development_dependency(%q<rake-compiler>.freeze, ["~> 1.0"])
+      s.add_development_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.6.0"])
+      s.add_development_dependency(%q<mini_portile>.freeze, ["~> 0.6.2"])
+      s.add_development_dependency(%q<hoe-bundler>.freeze, ["~> 1.0"])
+      s.add_development_dependency(%q<hoe-gemspec>.freeze, ["~> 1.0"])
+      s.add_development_dependency(%q<rdoc>.freeze, ["< 7", ">= 4.0"])
+      s.add_development_dependency(%q<hoe>.freeze, ["~> 3.22"])
+    else
+      s.add_dependency(%q<minitest>.freeze, ["~> 5.14"])
+      s.add_dependency(%q<rake-compiler>.freeze, ["~> 1.0"])
+      s.add_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.6.0"])
+      s.add_dependency(%q<mini_portile>.freeze, ["~> 0.6.2"])
+      s.add_dependency(%q<hoe-bundler>.freeze, ["~> 1.0"])
+      s.add_dependency(%q<hoe-gemspec>.freeze, ["~> 1.0"])
+      s.add_dependency(%q<rdoc>.freeze, ["< 7", ">= 4.0"])
+      s.add_dependency(%q<hoe>.freeze, ["~> 3.22"])
+    end
+  else
+    s.add_dependency(%q<minitest>.freeze, ["~> 5.14"])
+    s.add_dependency(%q<rake-compiler>.freeze, ["~> 1.0"])
+    s.add_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.6.0"])
+    s.add_dependency(%q<mini_portile>.freeze, ["~> 0.6.2"])
+    s.add_dependency(%q<hoe-bundler>.freeze, ["~> 1.0"])
+    s.add_dependency(%q<hoe-gemspec>.freeze, ["~> 1.0"])
+    s.add_dependency(%q<rdoc>.freeze, ["< 7", ">= 4.0"])
+    s.add_dependency(%q<hoe>.freeze, ["~> 3.22"])
+  end
 end

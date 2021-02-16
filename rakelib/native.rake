@@ -40,6 +40,10 @@ RUBY_EXTENSION = Rake::ExtensionTask.new('sqlite3_native', HOE.spec) do |ext|
       Rake::ExtensionCompiler.mingw_host
       ext.cross_compile = true
       ext.cross_platform = ['i386-mswin32-60', 'i386-mingw32', 'x64-mingw32']
+      ext.cross_compiling do |spec|
+        # The fat binary gem doesn't depend on the sqlite3 package, since it bundles the library.
+        spec.metadata.delete('msys2_mingw_dependencies')
+      end
     rescue RuntimeError
       # noop
     end
@@ -47,6 +51,9 @@ RUBY_EXTENSION = Rake::ExtensionTask.new('sqlite3_native', HOE.spec) do |ext|
 end
 
 # ensure things are compiled prior testing
-task :test => [:compile]
-
+if RUBY_PLATFORM =~ /mingw/ then
+  task :test => ["compile:msys2"]
+else
+  task :test => [:compile]
+end
 # vim: syntax=ruby
